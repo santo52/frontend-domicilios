@@ -1,11 +1,10 @@
 import React from 'react';
 import Menu from '../menu';
+import { menuItems } from '../../routes'
 
 function Header() {
     return (
-        <div>
-            <Menu />
-        </div>
+      <Menu items={menuItems}/>
     );
 }
 

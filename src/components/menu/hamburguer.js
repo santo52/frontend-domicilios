@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import { HamburguerButton, HamburguerIcon, HamburguerList, HamburguerListContainer } from './styles';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-function Hamburguer() {
+function Hamburguer({ items }) {
   const [active, setActive] = useState(true)
   return (
     <>
@@ -9,18 +15,16 @@ function Hamburguer() {
         <HamburguerIcon />
       </HamburguerButton>
       <HamburguerList active={active}>
-        <HamburguerOption active>Card</HamburguerOption>
-        <HamburguerOption>Home</HamburguerOption>
-        <HamburguerOption>Carreers</HamburguerOption>
-        <HamburguerOption>Contact</HamburguerOption>
-        <HamburguerOption>Menu</HamburguerOption>
+        {(items || []).map(item => (
+          <HamburguerOption key={JSON.stringify(item)} {...item} />
+        ))}
       </HamburguerList>
     </>
   )
 }
 
-function HamburguerOption({ children, ...props }) {
-    return <HamburguerListContainer {...props}><a>{children}</a></HamburguerListContainer>
+function HamburguerOption({ name, href, ...props }) {
+    return <HamburguerListContainer {...props}><Link to={href}>{name}</Link></HamburguerListContainer>
 }
 
 export default Hamburguer

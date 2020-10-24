@@ -28,6 +28,8 @@ const activeColorList = `
 
 export const MenuContainer = styled.div`
     height: ${headerHeight}px;
+    top: 0;
+    left: 0;
     width: 100%;
     position: fixed;
     z-index: 9999;
@@ -36,6 +38,7 @@ export const MenuContainer = styled.div`
     justify-content: center;
     align-items: center;
     border-bottom: 2px solid orange;
+    background: #fff;
 `;
 
 export const Title = styled.div`
@@ -66,9 +69,14 @@ export const HamburguerListContainer = styled.li`
       ${props => props.active ? activeColorList : ''}
     }
 
-    a:hover {
-      ${activeColorList}
+    a {
+      text-decoration: none;
+      color: #000;
+      &:hover {
+        ${activeColorList}
+      }
     }
+
 `
 
 export const HamburguerList = styled.ul`
