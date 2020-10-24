@@ -1,12 +1,10 @@
 import React from 'react';
-import { Navbar } from './styles';
+import Menu from '../menu';
 
 function Header() {
     return (
         <div>
-            <Navbar>
-                <span>Sistema de domicilios</span>
-            </Navbar>
+            <Menu />
         </div>
     );
 }
