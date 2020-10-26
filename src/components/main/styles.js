@@ -5,5 +5,4 @@ export const MainContainer = styled.div.attrs({
 })`
     margin-top: 45px;
     padding: 15px;
-    padding-left: 500px;
 `

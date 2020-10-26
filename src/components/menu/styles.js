@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-
+import { device } from '../device';
 const headerHeight = 45;
 
 const hamburguerActive = css`
@@ -33,7 +33,7 @@ export const MenuContainer = styled.div`
     width: 100%;
     position: fixed;
     z-index: 9999;
-    padding: 4px;
+    padding: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,6 +46,12 @@ export const Title = styled.div`
     text-align: center;
     font-weight: 600;
     width: 100%;
+
+    @media ${device.tablet} {
+      padding-left: 15px;
+      text-align: left;
+    }
+
 `;
 
 export const HamburguerButton = styled.button`
@@ -56,6 +62,9 @@ export const HamburguerButton = styled.button`
     outline: 0;
     cursor: pointer;
     ${props => (props.active ? hamburguerActive : '')};
+    @media ${device.tablet} {
+      display: none;
+    }
 `
 
 export const HamburguerListContainer = styled.li`
@@ -66,14 +75,15 @@ export const HamburguerListContainer = styled.li`
       height: 100%;
       padding: 15px;
       cursor: pointer;
-      ${props => props.active ? activeColorList : ''}
-    }
-
-    a {
       text-decoration: none;
       color: #000;
+      ${props => props.active ? activeColorList : ''}
       &:hover {
         ${activeColorList}
+      }
+
+      @media ${device.tablet} {
+        margin: 0;
       }
     }
 
@@ -94,6 +104,19 @@ export const HamburguerList = styled.ul`
     left: ${props => props.active ? 0 : '-100%'};
     box-shadow: 1px 1px 5px 1px #e7e7e7;
     list-style: none;
+
+    @media ${device.tablet} {
+        position: static;
+        width: auto;
+        display: flex;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        box-shadow: none;
+        height: 100%;
+    }
+
+
 `
 
 export const HamburguerIcon = styled.span`
@@ -129,3 +152,30 @@ export const HamburguerIcon = styled.span`
         top: 8px;
     }
 `
+
+export const Cart = styled.div`
+    width: 40px;
+    margin: 10px;
+    margin-right: 20px;
+    cursor:pointer;
+    position: relative;
+    &:before {
+      content: "${props => props.size}";
+      width: 15px;
+      height: 15px;
+      background-color:${props => props.size ? 'tomato' : 'white'};
+      display:block;
+      border-radius:50%;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight:600;
+      font-size: .7rem;
+      position: absolute;
+      right: 0;
+    }
+    img {
+      height:100%;
+    }
+`;

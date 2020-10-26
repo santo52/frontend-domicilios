@@ -5,8 +5,7 @@ import Hamburguer from './hamburguer';
 function Menu({ items }) {
     return (
         <MenuContainer>
-          <Hamburguer items={items} />
-          <Title>Sistema de domicilios</Title>
+          <Hamburguer items={items} title="Sistema de domicilios"/>
         </MenuContainer>
     );
 }
